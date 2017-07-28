@@ -59,6 +59,7 @@ def generate_flashcards(tweets,hashtag, verbose=False):
     Loop through tweets, filter out any non-flashcard related, and store in dictionary.
     :param tweets: twitter.api.TwitterListResponse, collection of Twitter API reponses
     :param hashtag: str, used to filter out non-relevant tweets
+    :param verbose: boolean, print more detailed status statements
     :return: dictionary with flashcards stored as topic,image_url
     """
     n = 0  # Number of flashcards
@@ -86,7 +87,8 @@ def download_images(flashcards,destination='./images/', verbose=False):
     """
     Loops through all flashcards, downloads, and saves to file.
     :param flashcards: dict, dictionary with flashcards stored as topic,image_url
-    :param output_path: str, directory path to save images 
+    :param output_path: str, directory path to save images
+    :param verbose: boolean, print more detailed status statements
     """
     new_flashcards = []
     if not os.path.exists(destination):
