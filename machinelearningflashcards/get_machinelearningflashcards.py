@@ -4,10 +4,10 @@
 import argparse
 from collections import defaultdict
 import os
-
-import twitter
 import urllib
+import twitter
 
+# Load config.py file with API Key info
 from config import CONSUMER_KEY,CONSUMER_SECRET,OAUTH_TOKEN,OAUTH_TOKEN_SECRET
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ def get_user_timeline(user, api, count=200, iterations=100, max_id=None, verbose
     return tweets
 
 # ----------------------------------------------------------------------------------------------------------------------
-def generate_flashcards(tweets,hashtag, verbose=False):
+def generate_flashcards(tweets, hashtag, verbose=False):
     """
     Loop through tweets, filter out any non-flashcard related, and store in dictionary.
     :param tweets: twitter.api.TwitterListResponse, collection of Twitter API reponses
@@ -83,7 +83,7 @@ def generate_flashcards(tweets,hashtag, verbose=False):
     return flashcards
 
 # ----------------------------------------------------------------------------------------------------------------------
-def download_images(flashcards,destination='./images/', verbose=False):
+def download_images(flashcards, destination='./images/', verbose=False):
     """
     Loops through all flashcards, downloads, and saves to file.
     :param flashcards: dict, dictionary with flashcards stored as topic,image_url
